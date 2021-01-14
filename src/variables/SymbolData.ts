@@ -2,18 +2,18 @@
 export const SymbolData = [
     {
         id: '1-s',
-        url: ''
+        uri: 'ic_diament'
     },
     {
         id: '2-s',
-        url: ''
+        uri: 'ic_diament'
     },
     {
         id: '3-s',
-        url: ''
+        uri: 'ic_diament'
     },
     {
         id: '4-s',
-        url: ''
+        uri: 'ic_diament'
     },
 ]
