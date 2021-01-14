@@ -5,8 +5,8 @@ import { CartsDATA } from '../variables/CartsData'
 
 const CartScreen = ()=> {
 
-    const onPress = ()=> {
-        console.log('click')
+    const onPress = ({item}:any)=> {
+        console.log('item')
     }
 
     const renderItem = ({ item }:any) => {
@@ -43,6 +43,8 @@ const ViewGroup = styled.View({
 
 const Separator = styled.View({
   paddingBottom:15,
+  borderBottomWidth: 1,
+  borderBottomColor: '#ffffff'
 })
 
 const Title = styled.Text({

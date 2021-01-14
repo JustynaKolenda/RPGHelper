@@ -8,7 +8,7 @@ import { SymbolData } from '../variables/SymbolData'
 const SymbolScreen = () => {
 
     const onPress = ()=> {
-        console.log('click')
+        console.log("cos")
     }
 
     const renderItem = ({ item }:any) => {
@@ -43,8 +43,9 @@ const ViewGroup = styled.View({
   paddingLeft: 10,
   paddingTop: 20,
   width: width,
-  paddingBottom: 10
-  
+  paddingBottom: 10,
+  borderBottomWidth: 2,
+  borderBottomColor: '#ffffff'
 })
 
 const Separator = styled.View({
