@@ -1,15 +1,15 @@
 import React from 'react'
 import { Dimensions, SafeAreaView, Text,  } from 'react-native'
-import SymbolScreen from './SymbolScreen'
+import SymbolsScreen from './SymbolsScreen'
 import styled from 'styled-components/native'
-import CartScreen from './CartScreen'
+import CartsScreen from './CartsScreen'
 
 const ListScreen = ()=> {
     return(
         <GroupView>
         <SafeAreaView style={{backgroundColor:'#000000'}}>
-            <SymbolScreen/>
-            <CartScreen/>
+            <SymbolsScreen/>
+            <CartsScreen/>
             <Button>
                 <ButtonText>+</ButtonText>
             </Button>

@@ -3,15 +3,15 @@ import { Dimensions, FlatList, Image, Text, TouchableOpacity, View } from 'react
 import styled from 'styled-components/native'
 import { CartsDATA } from '../variables/CartsData'
 
-const CartScreen = ()=> {
+const CartsScreen = ()=> {
 
-    const onPress = ({item}:any)=> {
-        console.log('item')
-    }
+    const onPress = (id:string)=> {
+        return console.log(id)
+     }
 
     const renderItem = ({ item }:any) => {
         return (
-            <TouchableOpacity onPress={onPress}>
+            <TouchableOpacity onPress={()=>{onPress(item.id)}}>
                 <Title>{item.title}</Title>
             </TouchableOpacity>
         )
@@ -55,4 +55,4 @@ const Title = styled.Text({
     fontStyle: 'italic'
 })
 
-export default CartScreen
+export default CartsScreen

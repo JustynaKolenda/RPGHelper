@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dimensions, FlatList, Image,  } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styled from 'styled-components/native'
 import { SymbolData } from '../variables/SymbolData'
 
 
-const SymbolScreen = () => {
-
-    const onPress = ()=> {
-        console.log("cos")
+const SymbolsScreen = () => {
+    const [ itemId, setItemId ] = useState() 
+    const onPress = (id:string)=> {
+       return console.log(id)
     }
 
     const renderItem = ({ item }:any) => {
         return (
-            <TouchableOpacity onPress={onPress}>
+            <TouchableOpacity onPress={()=>{onPress(item.id)}}>
                 <Image style={{ width:50, height:50 }} source={{ uri: item.uri }} />
             </TouchableOpacity>
         )
@@ -53,4 +53,4 @@ const Separator = styled.View({
   marginLeft: 20,
 })
 
-export default SymbolScreen
+export default SymbolsScreen
