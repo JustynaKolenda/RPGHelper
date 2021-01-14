@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, SafeAreaView,  } from 'react-native'
+import { Dimensions, SafeAreaView, Text, TouchableOpacity,  } from 'react-native'
 import SymbolScreen from './SymbolScreen'
 import styled from 'styled-components/native'
 import CartScreen from './CartScreen'
@@ -10,6 +10,9 @@ const ListScreen = ()=> {
         <SafeAreaView style={{backgroundColor:'#000000'}}>
             <SymbolScreen/>
             <CartScreen/>
+            {/* <TouchableOpacity>
+                <Text>Kliknij</Text>
+            </TouchableOpacity> */}
         </SafeAreaView>
         </GroupView>
     )
