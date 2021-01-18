@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimensions, FlatList,} from 'react-native'
+import { Dimensions, FlatList, SafeAreaView,} from 'react-native'
 import styled from 'styled-components/native'
 import { CartsDATA } from '../variables/CartsData'
 import CartScreen from './CartScreen'
@@ -8,34 +8,29 @@ const CartsScreen = ()=> {
     const onPress = (id:string)=> {
         return console.log(id)
     }
-    const separator = () => (<Separator/>)
 
     return(
+        <SafeAreaView style={{backgroundColor:'#3C3D3E'}}>
         <ViewGroup>
             <FlatList
-                style={{ backgroundColor:'#000000', width:'100%', paddingLeft:20}}
-                contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
-                ItemSeparatorComponent={separator}
+                style={{ backgroundColor:'#3C3D3E', width:'100%',marginLeft:10 }}
+                contentContainerStyle={{flexGrow: 1, justifyContent: 'center', alignItems:'center'}}
                 data={CartsDATA}
                 keyExtractor={(item)=>item.id}
+                numColumns={3}
                 renderItem={({item})=><CartScreen item={item} onPress={onPress}/>}
             />
         </ViewGroup>
+        </SafeAreaView>
     )
 }
 
 const {width, height} = Dimensions.get('window')
 const ViewGroup = styled.View({
-  backgroundColor:'#000000',
   width: width,
   marginTop: 20,
-  height:'80%'
+  height: height/1.4,
 })
 
-const Separator = styled.View({
-  paddingBottom:15,
-  borderBottomWidth: 1,
-  borderBottomColor: '#ffffff'
-})
 
 export default CartsScreen
