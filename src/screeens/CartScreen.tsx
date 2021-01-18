@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native';
+import { Image, } from 'react-native';
 import styled from 'styled-components/native';
 import { CartsType } from '../variables/type';
 
@@ -13,7 +13,15 @@ const CartScreen = ( props: ICartP) => {
     return (
         <TouchBox onPress={()=>props.onPress(props.item.id)}>
             <ViewBorder>
-                <Title>{props.item.title}</Title>
+                <PositionTitleTop>
+                    <Title>{props.item.title}</Title>
+                </PositionTitleTop>
+                <PositionSymbol>
+                    <IcSymbol source={{uri:'ic_trefl' }}/>
+                </PositionSymbol>
+                <PositionTitleBottom>
+                    <Title>{props.item.title}</Title>
+                </PositionTitleBottom>
             </ViewBorder>
         </TouchBox>
     )
@@ -21,7 +29,8 @@ const CartScreen = ( props: ICartP) => {
 
 const TouchBox = styled.TouchableOpacity({
     width: 90,
-    height: 127,
+    paddingTop: 5,
+    paddingBottom: 5,
     borderWidth: 1,
     borderColor: '#707070',
     borderRadius: 5,
@@ -37,16 +46,37 @@ const ViewBorder = styled.View({
     borderWidth: 1,
     borderRadius: 5,
     width: '90%',
-    height: '90%',
-    justifyContent:'center',
-    alignItems:'center'
+    // height: '90%',
+
+})
+
+const PositionTitleTop = styled.View({
+    marginTop: 10,
+    marginLeft: 11
 })
 
 const Title = styled.Text({
     color:'#000000',
-    fontWeight: 'bold',
-    fontSize: 28,
-    fontStyle: 'italic'
+    fontSize: 21,
+    fontFamily: 'PerryGothic',
+    fontWeight: 400,
 })
+
+const PositionSymbol = styled.View({
+    justifyContent: 'center',
+    alignItems: 'center'
+})
+
+const IcSymbol = styled.Image({
+    width: 39,
+    height: 36,
+    marginBottom: 8.5
+})
+
+const PositionTitleBottom = styled.View({
+    alignItems: 'flex-end',
+    marginRight: 7
+})
+
 
 export default CartScreen

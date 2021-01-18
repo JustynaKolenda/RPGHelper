@@ -2,7 +2,7 @@
 export const CartsDATA = [
     {
         id: '1-c',
-        title: 'AS'
+        title: 'A'
     },
     {
         id: '2-c',
@@ -42,15 +42,15 @@ export const CartsDATA = [
     },
     {
         id: '11-c',
-        title: 'Valet'
+        title: 'W'
     },
     {
         id: '12-c',
-        title: 'Dama'
+        title: 'D'
     },
     {
         id: '13-c',
-        title: 'Król'
+        title: 'K'
     },
    
 ]
