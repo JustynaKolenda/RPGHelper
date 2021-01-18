@@ -1,51 +1,21 @@
 import React from 'react'
-import { Dimensions, FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
-import styled from 'styled-components/native'
-import { CartsDATA } from '../variables/CartsData'
+import { TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native';
+import { CartsType } from '../variables/type';
 
-const CartScreen = ()=> {
+ interface ICartP{
+    onPress: (id:string)=>void,
+    item: CartsType
+ } 
 
-    const onPress = ({item}:any)=> {
-        console.log('item')
-    }
+const CartScreen = ( props: ICartP) => {
 
-    const renderItem = ({ item }:any) => {
-        return (
-            <TouchableOpacity onPress={onPress}>
-                <Title>{item.title}</Title>
-            </TouchableOpacity>
-        )
-    };
-
-    const separator = () => (<Separator/>)
-
-
-    return(
-        <ViewGroup>
-            <FlatList
-                style={{ backgroundColor:'#000000', width:'100%', paddingLeft:20}}
-                contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
-                ItemSeparatorComponent={separator}
-                data={CartsDATA}
-                keyExtractor={(item)=>item.id}
-                renderItem={renderItem}
-            />
-        </ViewGroup>
+    return (
+        <TouchableOpacity onPress={()=>props.onPress(props.item.id)}>
+            <Title>{props.item.title}</Title>
+        </TouchableOpacity>
     )
-}
-
-const {width, height} = Dimensions.get('window')
-const ViewGroup = styled.View({
-  backgroundColor:'#000000',
-  width: width,
-  marginTop: 20,
-})
-
-const Separator = styled.View({
-  paddingBottom:15,
-  borderBottomWidth: 1,
-  borderBottomColor: '#ffffff'
-})
+};
 
 const Title = styled.Text({
     color:'#ffffff',
