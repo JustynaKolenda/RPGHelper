@@ -3,24 +3,15 @@ import { Dimensions, FlatList, Image,  } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styled from 'styled-components/native'
 import { SymbolData } from '../variables/SymbolData'
+import SymbolScreen from './SymbolScreen'
 
 
 const SymbolsScreen = () => {
-    const [ itemId, setItemId ] = useState() 
-    const onPress = (id:string)=> {
-       return console.log(id)
-    }
-
-    const renderItem = ({ item }:any) => {
-        return (
-            <TouchableOpacity onPress={()=>{onPress(item.id)}}>
-                <Image style={{ width:50, height:50 }} source={{ uri: item.uri }} />
-            </TouchableOpacity>
-        )
-    };
 
     const separator = () => (<Separator/>)
-
+    const onPress = (id:string)=> {
+      return console.log(id)
+    }
 
     return(
         <ViewGroup>
@@ -31,7 +22,7 @@ const SymbolsScreen = () => {
                 data={SymbolData}
                 keyExtractor={(item)=>item.id}
                 horizontal={true}
-                renderItem={renderItem}
+                renderItem={({item})=><SymbolScreen onPress={onPress} item={item}/>}
             />
         </ViewGroup>
     )

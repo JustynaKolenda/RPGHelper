@@ -1,24 +1,14 @@
-import React from 'react'
-import { Dimensions, FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+import { Dimensions, FlatList,} from 'react-native'
 import styled from 'styled-components/native'
 import { CartsDATA } from '../variables/CartsData'
+import CartScreen from './CartScreen'
 
 const CartsScreen = ()=> {
-
     const onPress = (id:string)=> {
         return console.log(id)
-     }
-
-    const renderItem = ({ item }:any) => {
-        return (
-            <TouchableOpacity onPress={()=>{onPress(item.id)}}>
-                <Title>{item.title}</Title>
-            </TouchableOpacity>
-        )
-    };
-
+    }
     const separator = () => (<Separator/>)
-
 
     return(
         <ViewGroup>
@@ -28,7 +18,7 @@ const CartsScreen = ()=> {
                 ItemSeparatorComponent={separator}
                 data={CartsDATA}
                 keyExtractor={(item)=>item.id}
-                renderItem={renderItem}
+                renderItem={({item})=><CartScreen item={item} onPress={onPress}/>}
             />
         </ViewGroup>
     )
@@ -46,13 +36,6 @@ const Separator = styled.View({
   paddingBottom:15,
   borderBottomWidth: 1,
   borderBottomColor: '#ffffff'
-})
-
-const Title = styled.Text({
-    color:'#ffffff',
-    fontWeight: 'bold',
-    fontSize: 28,
-    fontStyle: 'italic'
 })
 
 export default CartsScreen
