@@ -16,8 +16,8 @@ const SymbolsScreen = () => {
     return(
         <ViewGroup>
             <FlatList
-                style={{ backgroundColor:'#000000', width:'100%', }}
-                contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
+                style={{ backgroundColor:'#ffffff', width:'100%', }}
+                contentContainerStyle={{flexGrow: 1, justifyContent: 'center', alignItems: 'center'}}
                 ItemSeparatorComponent={separator}
                 data={SymbolData}
                 keyExtractor={(item)=>item.id}
@@ -30,13 +30,11 @@ const SymbolsScreen = () => {
 
 const {width, height} = Dimensions.get('window')
 const ViewGroup = styled.View({
-  backgroundColor:'#000000',
-  paddingLeft: 10,
-  paddingTop: 20,
+  backgroundColor:'#707070',
+  height: 96,
   width: width,
-  paddingBottom: 10,
-  borderBottomWidth: 2,
-  borderBottomColor: '#ffffff'
+  borderBottomWidth: 1,
+ 
 })
 
 const Separator = styled.View({

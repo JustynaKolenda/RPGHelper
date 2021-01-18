@@ -10,6 +10,7 @@ const ListScreen = ()=> {
         <GroupView>
         <SafeAreaView style={{backgroundColor:'#000000'}}>
             <SymbolsScreen/>
+            <ViewSeparator/>
             <CartsScreen/>
             <ButtonScreen/>
         </SafeAreaView>
@@ -21,6 +22,10 @@ const {width, height} = Dimensions.get('window')
 const GroupView = styled.View({
     backgroundColor:'#000000',
     height: height
+})
+const ViewSeparator = styled.View({
+    paddingBottom:2,
+    backgroundColor: '#ffffff'
 })
 
 export default ListScreen
