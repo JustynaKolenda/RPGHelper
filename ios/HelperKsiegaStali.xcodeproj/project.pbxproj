@@ -19,6 +19,8 @@
 		3E1E3F1A8AF5ECEFD800DCCF /* libPods-HelperKsiegaStali-HelperKsiegaStaliTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367C786EF96648E380880219 /* libPods-HelperKsiegaStali-HelperKsiegaStaliTests.a */; };
 		4780E3F38FA8E1F86AC25632 /* libPods-HelperKsiegaStali-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CA9A22FE5CDA6164A12EBD /* libPods-HelperKsiegaStali-tvOS.a */; };
 		4848C53725B5DB4400E73BF4 /* perrygot.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4848C53625B5DB4400E73BF4 /* perrygot.ttf */; };
+		4883C00A25B63C0700ED3274 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883C00925B63C0700ED3274 /* File.swift */; };
+		4883C01125B63E5200ED3274 /* libWatermelonDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4883C01025B63E2800ED3274 /* libWatermelonDB.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		928F51887BE0EA2D3F815A47 /* libPods-HelperKsiegaStali.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CFB07B39D34D9AD9823C70 /* libPods-HelperKsiegaStali.a */; };
 /* End PBXBuildFile section */
@@ -37,6 +39,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "HelperKsiegaStali-tvOS";
+		};
+		4883C00F25B63E2800ED3274 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4883C00B25B63E2800ED3274 /* WatermelonDB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E660D5E213BCCD300189354;
+			remoteInfo = WatermelonDB;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -59,6 +68,9 @@
 		367C786EF96648E380880219 /* libPods-HelperKsiegaStali-HelperKsiegaStaliTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HelperKsiegaStali-HelperKsiegaStaliTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CA9A22FE5CDA6164A12EBD /* libPods-HelperKsiegaStali-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HelperKsiegaStali-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4848C53625B5DB4400E73BF4 /* perrygot.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = perrygot.ttf; sourceTree = "<group>"; };
+		4883C00825B63C0700ED3274 /* HelperKsiegaStali-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelperKsiegaStali-Bridging-Header.h"; sourceTree = "<group>"; };
+		4883C00925B63C0700ED3274 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		4883C00B25B63E2800ED3274 /* WatermelonDB.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WatermelonDB.xcodeproj; path = "../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB.xcodeproj"; sourceTree = "<group>"; };
 		64CCF314F57E8424EC2E5313 /* libPods-HelperKsiegaStali-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HelperKsiegaStali-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9380D254C4F326CDF16280 /* Pods-HelperKsiegaStali-HelperKsiegaStaliTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelperKsiegaStali-HelperKsiegaStaliTests.debug.xcconfig"; path = "Target Support Files/Pods-HelperKsiegaStali-HelperKsiegaStaliTests/Pods-HelperKsiegaStali-HelperKsiegaStaliTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HelperKsiegaStali/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4883C01125B63E5200ED3274 /* libWatermelonDB.a in Frameworks */,
 				928F51887BE0EA2D3F815A47 /* libPods-HelperKsiegaStali.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,9 +174,18 @@
 			name = Font;
 			sourceTree = "<group>";
 		};
+		4883C00C25B63E2800ED3274 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4883C01025B63E2800ED3274 /* libWatermelonDB.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4883C00B25B63E2800ED3274 /* WatermelonDB.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -171,6 +193,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				4883C00925B63C0700ED3274 /* File.swift */,
 				13B07FAE1A68108700A75B9A /* HelperKsiegaStali */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* HelperKsiegaStaliTests */,
@@ -178,6 +201,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				FCA4DC6B80D8E5C302F3B3A7 /* Pods */,
 				EC65F502FF0F4E6FB95BCE8D /* Resources */,
+				4883C00825B63C0700ED3274 /* HelperKsiegaStali-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -314,7 +338,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1170;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -338,6 +362,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4883C00C25B63E2800ED3274 /* Products */;
+					ProjectRef = 4883C00B25B63E2800ED3274 /* WatermelonDB.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* HelperKsiegaStali */,
@@ -347,6 +377,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4883C01025B63E2800ED3274 /* libWatermelonDB.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libWatermelonDB.a;
+			remoteRef = 4883C00F25B63E2800ED3274 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -590,6 +630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				4883C00A25B63C0700ED3274 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +672,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E9380D254C4F326CDF16280 /* Pods-HelperKsiegaStali-HelperKsiegaStaliTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -654,6 +696,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F59ED9BDBC373B5672EE9928 /* Pods-HelperKsiegaStali-HelperKsiegaStaliTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = HelperKsiegaStaliTests/Info.plist;
@@ -687,6 +730,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = HelperKsiegaStali;
+				SWIFT_OBJC_BRIDGING_HEADER = "HelperKsiegaStali-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -709,6 +753,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = HelperKsiegaStali;
+				SWIFT_OBJC_BRIDGING_HEADER = "HelperKsiegaStali-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

@@ -306,6 +306,9 @@ PODS:
     - React-Core
   - RNScreens (2.16.1):
     - React-Core
+  - WatermelonDB (0.20.0):
+    - React
+    - React-jsi
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -362,6 +365,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - "WatermelonDB (from `../node_modules/@nozbe/watermelondb`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -440,6 +444,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  WatermelonDB:
+    :path: "../node_modules/@nozbe/watermelondb"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -485,9 +491,10 @@ SPEC CHECKSUMS:
   RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
   RNReanimated: e03f7425cb7a38dcf1b644d680d1bfc91c3337ad
   RNScreens: 45c457af3d2ee9e08fc01e70da87e653d46b1198
+  WatermelonDB: bfbd3502c9542634ac277d30122efe96a7816762
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: b31475b69024a5e6376aa5bd7aa2645dec768652
+PODFILE CHECKSUM: c8ae161c09959e8beb98edcea761ab41617653c1
 
 COCOAPODS: 1.8.4
