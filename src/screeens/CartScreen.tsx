@@ -2,13 +2,18 @@ import React from 'react'
 import { Image, Platform, } from 'react-native';
 import styled from 'styled-components/native';
 import { CartsType } from '../variables/type';
+import withObservables from '@nozbe/with-observables';
+import {withDatabase} from '@nozbe/watermelondb/DatabaseProvider';
+
 
  interface ICartP{
     onPress: (id:string)=>void,
-    item: CartsType
+    item: CartsType,
+    tasks: any
  } 
 
 const CartScreen = ( props: ICartP) => {
+    const tasks = props
 
     return (
         <TouchBox onPress={()=>props.onPress(props.item.id)}>

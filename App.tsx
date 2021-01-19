@@ -14,14 +14,13 @@ import {
 } from 'react-native';
 import ListScreen from './src/screeens/ListScreen';
 
-
 declare const global: {HermesInternal: null | {}};
+
+
 
 const App = () => {
   return (
-    <>
       <ListScreen/>
-    </>
   );
 };
 

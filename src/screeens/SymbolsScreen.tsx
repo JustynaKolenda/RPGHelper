@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Dimensions, FlatList, Image, SafeAreaView,  } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styled from 'styled-components/native'
+import { database } from '../database/schema'
 import { SymbolData } from '../variables/SymbolData'
 import SymbolScreen from './SymbolScreen'
 
@@ -9,8 +10,18 @@ import SymbolScreen from './SymbolScreen'
 const SymbolsScreen = () => {
 
     const separator = () => (<Separator/>)
-    const onPress = (id:string)=> {
-      return console.log(id)
+    const onPress = async (id:string)=> {
+      const postsCollection = database.collections.get('posts');
+
+      await database.action(async () => {
+        const newPost = await postsCollection.create((post:any) => {
+          post.title = 'New post'
+          post.body = 'Lorem ipsum...'
+        })
+      })
+
+      const allPosts = await postsCollection.query().fetch()
+      console.log(allPosts);
     }
 
     return(

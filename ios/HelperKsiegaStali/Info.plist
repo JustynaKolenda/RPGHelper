@@ -56,6 +56,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>perrygot.ttf</string>
+		<string>PerryGothic.ttf</string>
 	</array>
 </dict>
 </plist>
