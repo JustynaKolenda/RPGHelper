@@ -86,6 +86,7 @@ const TitleBottom = styled.Text({
     fontWeight: 400,
     transform: 'rotate(180deg)',
     paddingTop: (Platform.OS)? 10 : 0,
+    
 })
 
 
