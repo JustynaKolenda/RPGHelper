@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
-import { Dimensions, FlatList, SafeAreaView,} from 'react-native'
+import { observer } from 'mobx-react-lite'
+import React, { useContext, useState } from 'react'
+import { Dimensions, FlatList, SafeAreaView, Text,} from 'react-native'
 import styled from 'styled-components/native'
+import { CounterStoreContext } from '../store/store'
 import { CartsDATA } from '../variables/CartsData'
 import CartScreen from './CartScreen'
 
-const CartsScreen = ()=> {
+const CartsScreen =  observer(()=> {
     const onPress = (id:string)=> {
         return console.log(id)
     }
+    const CounterStore = useContext(CounterStoreContext)
+    console.log(CounterStore.count)
 
     return(
         <SafeAreaView style={{backgroundColor:'#3C3D3E'}}>
@@ -18,12 +22,12 @@ const CartsScreen = ()=> {
                 data={CartsDATA}
                 keyExtractor={(item)=>item.id}
                 numColumns={3}
-                renderItem={({item})=><CartScreen item={item} onPress={onPress}/>}
+                renderItem={({item})=><CartScreen item={item} />}
             />
         </ViewGroup>
         </SafeAreaView>
     )
-}
+})
 
 const {width, height} = Dimensions.get('window')
 const ViewGroup = styled.View({

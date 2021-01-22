@@ -10,10 +10,13 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.8.10",
     "@types/styled-components": "^5.1.7",
     "@types/styled-components-react-native": "^5.1.0",
+    "mobx": "^6.0.4",
+    "mobx-react-lite": "^3.1.6",
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-gesture-handler": "^1.9.0",

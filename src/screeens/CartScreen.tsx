@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Image, Platform, } from 'react-native';
 import styled from 'styled-components/native';
+import { CounterStoreContext } from '../store/store';
 import { CartsType } from '../variables/type';
-
+import { observer } from 'mobx-react-lite'
  interface ICartP{
-    onPress: (id:string)=>void,
+    // onPress: (id:string)=>void,
     item: CartsType
  } 
 
-const CartScreen = ( props: ICartP) => {
+const CartScreen = observer(( props: ICartP) => {
+    const CounterStore = useContext(CounterStoreContext)
 
+    const handleChange = ()=> {
+        CounterStore.increment();
+    }
+    
     return (
-        <TouchBox onPress={()=>props.onPress(props.item.id)}>
+        // <TouchBox onPress={()=>props.onPress(props.item.id)}>
+        <TouchBox onPress={handleChange}>
             <ViewBorder>
                 <PositionTitleTop>
                     <Title>{props.item.title}</Title>
@@ -25,7 +32,7 @@ const CartScreen = ( props: ICartP) => {
             </ViewBorder>
         </TouchBox>
     )
-};
+});
 
 const TouchBox = styled.TouchableOpacity({
     width: 90,

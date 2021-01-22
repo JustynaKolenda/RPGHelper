@@ -9,19 +9,19 @@
  */
 
 import React from 'react';
-import {
-  StatusBar,
-} from 'react-native';
+import { } from 'react-native';
 import ListScreen from './src/screeens/ListScreen';
+import { CounterStore, CounterStoreContext } from './src/store/store';
 
 
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
+  const store = new CounterStore()
   return (
-    <>
+    <CounterStoreContext.Provider value={store}>
       <ListScreen/>
-    </>
+    </CounterStoreContext.Provider>
   );
 };
 
