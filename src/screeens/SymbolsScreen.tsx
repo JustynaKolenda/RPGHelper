@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimensions, FlatList, Image,  } from 'react-native'
+import { Dimensions, FlatList, Image, SafeAreaView,  } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styled from 'styled-components/native'
 import { SymbolData } from '../variables/SymbolData'
@@ -14,10 +14,11 @@ const SymbolsScreen = () => {
     }
 
     return(
+      <SafeAreaView style={{backgroundColor:'#000000'}}>
         <ViewGroup>
             <FlatList
-                style={{ backgroundColor:'#000000', width:'100%', }}
-                contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
+                style={{ backgroundColor:'#ffffff', width:'100%', }}
+                contentContainerStyle={{flexGrow: 1, justifyContent: 'center', alignItems: 'center'}}
                 ItemSeparatorComponent={separator}
                 data={SymbolData}
                 keyExtractor={(item)=>item.id}
@@ -25,18 +26,17 @@ const SymbolsScreen = () => {
                 renderItem={({item})=><SymbolScreen onPress={onPress} item={item}/>}
             />
         </ViewGroup>
+        </SafeAreaView>
     )
 }
 
 const {width, height} = Dimensions.get('window')
 const ViewGroup = styled.View({
-  backgroundColor:'#000000',
-  paddingLeft: 10,
-  paddingTop: 20,
+  backgroundColor:'#707070',
+  height: 96,
   width: width,
-  paddingBottom: 10,
-  borderBottomWidth: 2,
-  borderBottomColor: '#ffffff'
+  borderBottomWidth: 1,
+ 
 })
 
 const Separator = styled.View({
