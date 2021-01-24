@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
-import { Image, TouchableOpacity, View } from 'react-native';
+import { } from 'react-native';
 import styled from 'styled-components/native';
 import { CounterStoreContext } from '../store/store';
 import { SymbolsType } from '../variables/type';
@@ -15,9 +15,10 @@ const SymbolScreen =  observer((props :ISymbolP) => {
     const handleChange = ()=> {
         CounterStore.setId(props.item.id)
     }
+    const active =  CounterStore.active?.id
 
     return (
-        <TouchBorder onPress={handleChange} >
+        <TouchBorder active={active} item={props.item} onPress={handleChange} >
             <BoxView>
                 <SymbolImage source={{ uri: props.item.uri }} />
             </BoxView>
@@ -25,6 +26,10 @@ const SymbolScreen =  observer((props :ISymbolP) => {
     )
 });
 
+interface ITouchP {
+    item : SymbolsType,
+    active : any
+}
 const TouchBorder = styled.TouchableOpacity({
     width: 50,
     height: 71,
@@ -33,6 +38,16 @@ const TouchBorder = styled.TouchableOpacity({
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center'
+},(props : ITouchP)=>{
+    let positionSymbol
+    if(props.item.id == props.active){
+       positionSymbol = {
+           marginTop: 71 / 1.3
+       }
+    }
+    return({
+        ...positionSymbol
+    })
 })
 
 const BoxView = styled.View({

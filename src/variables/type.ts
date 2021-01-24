@@ -10,10 +10,8 @@ export interface SymbolsType {
 }
 
 export interface CompareType {
-    item: {
-        id: string,
-        idS: string,
-        idC: string,
-        description: string
-    }
+    id: string,
+    idS: string,
+    idC: string,
+    description: string
 }

@@ -1,36 +1,41 @@
-import React, { useContext } from 'react'
-import { Image, Platform, } from 'react-native';
-import styled from 'styled-components/native';
-import { CounterStoreContext } from '../store/store';
-import { CartsType } from '../variables/type';
 import { observer } from 'mobx-react-lite'
- interface ICartP{
-    onPress: (id:CartsType)=>void,
-    item: CartsType
- } 
+import React, { useContext,  } from 'react'
+import { Dimensions, Platform, SafeAreaView, Text,} from 'react-native'
+import styled from 'styled-components/native'
+import { CounterStoreContext } from '../../store/store'
+import { CartsDATA } from '../../variables/CartsData'
+import { CartsType, CompareType } from '../../variables/type'
+import CartScreen from '../CartScreen'
 
-const CartScreen = observer(( props: ICartP) => {
+interface IScreenOfCardDescP {
+    compareItem : CompareType,
+    route: any
+}
 
-    const CounterStore = useContext(CounterStoreContext)
-    const uriSymbol = CounterStore.active?.uri
-
-    
-    return (
-        <TouchBox onPress={()=>props.onPress(props.item)}>
-            <ViewBorder>
-                <PositionTitleTop>
-                    <Title>{props.item.title}</Title>
-                </PositionTitleTop>
-                <PositionSymbol>
-                    <IcSymbol source={{uri: uriSymbol }}/>
-                </PositionSymbol>
-                <PositionTitleBottom>
-                    <TitleBottom>{props.item.title}</TitleBottom>
-                </PositionTitleBottom>
-            </ViewBorder>
-        </TouchBox>
+const ScreenOfCardDesc =  observer((props: IScreenOfCardDescP)=> {
+    const item = props.route.params.itemId
+    const onPress = (item:CartsType)=> {
+        return item
+    }
+  
+    return(
+        <SafeAreaView style={{backgroundColor:'#000000'}}>
+        <ViewGroup>
+            <CartScreen onPress={onPress} item={item} />
+        </ViewGroup>
+        </SafeAreaView>
     )
-});
+})
+
+const {width, height} = Dimensions.get('window')
+const ViewGroup = styled.View({
+  width: width,
+  marginTop: 20,
+  height: 164,
+  backgroundColor: '#ffffff',
+  borderBottomColor: '#707070',
+  borderBottomWidth: 1
+})
 
 const TouchBox = styled.TouchableOpacity({
     width: 90,
@@ -95,4 +100,5 @@ const TitleBottom = styled.Text({
 })
 
 
-export default CartScreen
+
+export default ScreenOfCardDesc
