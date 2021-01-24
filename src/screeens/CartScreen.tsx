@@ -10,21 +10,19 @@ import { observer } from 'mobx-react-lite'
  } 
 
 const CartScreen = observer(( props: ICartP) => {
-    // const CounterStore = useContext(CounterStoreContext)
 
-    // const handleChange = ()=> {
-    //     CounterStore.increment();
-    // }
+    const CounterStore = useContext(CounterStoreContext)
+    const uriSymbol = CounterStore.active?.uri
+
     
     return (
         <TouchBox onPress={()=>props.onPress(props.item.id)}>
-        {/*  <TouchBox onPress={handleChange}> */}
             <ViewBorder>
                 <PositionTitleTop>
                     <Title>{props.item.title}</Title>
                 </PositionTitleTop>
                 <PositionSymbol>
-                    <IcSymbol source={{uri:'ic_trefl' }}/>
+                    <IcSymbol source={{uri: uriSymbol }}/>
                 </PositionSymbol>
                 <PositionTitleBottom>
                     <TitleBottom>{props.item.title}</TitleBottom>

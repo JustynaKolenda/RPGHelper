@@ -20,7 +20,6 @@ export class CounterStore {
 
   setId(id:string){
     this.idOfActive = id;
-    console.log(this.idOfActive);
   }
 }
 

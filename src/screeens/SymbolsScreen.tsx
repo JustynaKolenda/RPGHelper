@@ -3,7 +3,6 @@ import React, { useContext, useState } from 'react'
 import { Dimensions, FlatList, Image, SafeAreaView,  } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styled from 'styled-components/native'
-import { CounterStoreContext } from '../store/store'
 import { SymbolData } from '../variables/SymbolData'
 import SymbolScreen from './SymbolScreen'
 
@@ -11,9 +10,6 @@ import SymbolScreen from './SymbolScreen'
 const SymbolsScreen =  observer(() => {
 
     const separator = () => (<Separator/>)
-
-    const CounterStore = useContext(CounterStoreContext)
-    console.log(CounterStore.idOfActive)
 
     return(
       <SafeAreaView style={{backgroundColor:'#000000'}}>
