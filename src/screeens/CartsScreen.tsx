@@ -10,8 +10,6 @@ const CartsScreen =  observer(()=> {
     const onPress = (id:string)=> {
         return console.log(id)
     }
-    const CounterStore = useContext(CounterStoreContext)
-    console.log(CounterStore.count)
 
     return(
         <SafeAreaView style={{backgroundColor:'#3C3D3E'}}>
@@ -22,7 +20,7 @@ const CartsScreen =  observer(()=> {
                 data={CartsDATA}
                 keyExtractor={(item)=>item.id}
                 numColumns={3}
-                renderItem={({item})=><CartScreen item={item} />}
+                renderItem={({item})=><CartScreen onPress={onPress} item={item} />}
             />
         </ViewGroup>
         </SafeAreaView>

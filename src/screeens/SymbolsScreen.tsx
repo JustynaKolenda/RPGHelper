@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import { observer } from 'mobx-react-lite'
+import React, { useContext, useState } from 'react'
 import { Dimensions, FlatList, Image, SafeAreaView,  } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styled from 'styled-components/native'
+import { CounterStoreContext } from '../store/store'
 import { SymbolData } from '../variables/SymbolData'
 import SymbolScreen from './SymbolScreen'
 
 
-const SymbolsScreen = () => {
+const SymbolsScreen =  observer(() => {
 
     const separator = () => (<Separator/>)
-    const onPress = (id:string)=> {
-      return console.log(id)
-    }
+
+    const CounterStore = useContext(CounterStoreContext)
+    console.log(CounterStore.idOfActive)
 
     return(
       <SafeAreaView style={{backgroundColor:'#000000'}}>
@@ -23,12 +25,12 @@ const SymbolsScreen = () => {
                 data={SymbolData}
                 keyExtractor={(item)=>item.id}
                 horizontal={true}
-                renderItem={({item})=><SymbolScreen onPress={onPress} item={item}/>}
+                renderItem={({item})=><SymbolScreen  item={item}/>}
             />
         </ViewGroup>
         </SafeAreaView>
     )
-}
+})
 
 const {width, height} = Dimensions.get('window')
 const ViewGroup = styled.View({

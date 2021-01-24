@@ -1,23 +1,29 @@
-import React from 'react';
+import { observer } from 'mobx-react-lite';
+import React, { useContext } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
+import { CounterStoreContext } from '../store/store';
 import { SymbolsType } from '../variables/type';
 
 interface ISymbolP{
-    onPress: (id:string)=>void,
     item: SymbolsType
  } 
 
-const SymbolScreen = (props :ISymbolP) => {
+const SymbolScreen =  observer((props :ISymbolP) => {
+    
+    const CounterStore = useContext(CounterStoreContext)
+    const handleChange = ()=> {
+        CounterStore.setId(props.item.id)
+    }
 
     return (
-        <TouchBorder onPress={()=>props.onPress(props.item.id)}>
+        <TouchBorder onPress={handleChange} >
             <BoxView>
                 <SymbolImage source={{ uri: props.item.uri }} />
             </BoxView>
         </TouchBorder>
     )
-};
+});
 
 const TouchBorder = styled.TouchableOpacity({
     width: 50,

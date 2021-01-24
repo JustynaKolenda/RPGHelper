@@ -5,20 +5,20 @@ import { CounterStoreContext } from '../store/store';
 import { CartsType } from '../variables/type';
 import { observer } from 'mobx-react-lite'
  interface ICartP{
-    // onPress: (id:string)=>void,
+    onPress: (id:string)=>void,
     item: CartsType
  } 
 
 const CartScreen = observer(( props: ICartP) => {
-    const CounterStore = useContext(CounterStoreContext)
+    // const CounterStore = useContext(CounterStoreContext)
 
-    const handleChange = ()=> {
-        CounterStore.increment();
-    }
+    // const handleChange = ()=> {
+    //     CounterStore.increment();
+    // }
     
     return (
-        // <TouchBox onPress={()=>props.onPress(props.item.id)}>
-        <TouchBox onPress={handleChange}>
+        <TouchBox onPress={()=>props.onPress(props.item.id)}>
+        {/*  <TouchBox onPress={handleChange}> */}
             <ViewBorder>
                 <PositionTitleTop>
                     <Title>{props.item.title}</Title>

@@ -1,30 +1,27 @@
 import React, { createContext } from 'react'
 import { action, computed, makeObservable, observable } from 'mobx';
-
+import {SymbolData } from '../variables/SymbolData'
 export class CounterStore {
-  count = 0;
+  idOfActive = '1-s';
   
   constructor() {
     makeObservable(this, {
-      count: observable,
-      increment: action,
-      level: computed
+      idOfActive: observable,
+      setId:action,
+      active: computed
   })
   }
 
-  increment() {
-    this.count++;
+  get active(){
+    return SymbolData.find((el)=>{
+        return this.idOfActive == el.id
+    })
   }
 
-  get level(){
-    if(this.count < 10){
-      return 1
-    }
-    
-    let temp = Math.floor(this.count/10);
-    return temp.toString(2).length + 1;
+  setId(id:string){
+    this.idOfActive = id;
+    console.log(this.idOfActive);
   }
-
 }
 
 export const CounterStoreContext = createContext(new CounterStore());
