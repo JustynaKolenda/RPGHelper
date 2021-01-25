@@ -12,10 +12,10 @@ const Stack = createStackNavigator();
 const StackNavigation = ()=> {
   return (
     <Stack.Navigator>
-      <Stack.Screen name={NavigationName.LIST}  options={{   headerShown: false}} component={ListScreen} />
+      <Stack.Screen name={NavigationName.LIST}  options={{headerShown: false}} component={ListScreen} />
       <Stack.Screen name={NavigationName.CARTS} component={CartsScreen} />
       <Stack.Screen name={NavigationName.SYMBOL}  component={SymbolScreen} />
-      <Stack.Screen name={NavigationName.CARTDESCRIPTION}  component={ScreenOfCardDesc} />
+      <Stack.Screen name={NavigationName.CARTDESCRIPTION}  options={{headerShown: false}}  component={ScreenOfCardDesc} />
     </Stack.Navigator>
   );
 }

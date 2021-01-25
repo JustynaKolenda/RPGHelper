@@ -1,9 +1,10 @@
 import { observer } from 'mobx-react-lite'
-import React, { useContext,  } from 'react'
-import { Dimensions, Platform, SafeAreaView, Text,} from 'react-native'
+import React, { useContext } from 'react'
+import { Dimensions, Image, SafeAreaView, View,} from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import styled from 'styled-components/native'
 import { CounterStoreContext } from '../../store/store'
-import { CartsDATA } from '../../variables/CartsData'
+import { CompareData } from '../../variables/CompareData'
 import { CartsType, CompareType } from '../../variables/type'
 import CartScreen from '../CartScreen'
 
@@ -17,12 +18,49 @@ const ScreenOfCardDesc =  observer((props: IScreenOfCardDescP)=> {
     const onPress = (item:CartsType)=> {
         return item
     }
+
+    const CounterStore = useContext(CounterStoreContext)
+    const uriSymbol = CounterStore.active?.id
+
+    const Compare = CompareData.map((el)=>{
+        if(el.idC == item.id && el.idS == uriSymbol){
+            return el.description
+        }
+    })
   
     return(
-        <SafeAreaView style={{backgroundColor:'#000000'}}>
+        <SafeAreaView style={{backgroundColor:'#ffffff'}}>
         <ViewGroup>
             <CartScreen onPress={onPress} item={item} />
+            <ViewTitle> 
+                <TextShort>{Compare}</TextShort>
+            </ViewTitle>
         </ViewGroup>
+        <ViewSeparator/>
+        <View>
+            <ViewPuzelGroup>
+                <RandomPuzelTitle>Losowy puzel</RandomPuzelTitle>
+            </ViewPuzelGroup>
+            <GroupButton>
+                <TouchableOpacity>
+                    <Refresh source={{uri: 'ic_refresh'}}/>
+                </TouchableOpacity>
+            </GroupButton>
+            <VieGroupDesc>
+                <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum nec quam sed posuere.
+                    Sed cursus orci id convallis sollicitudin. Fusce egestas justo at ex consectetur tempus.
+                    Praesent tincidunt felis ipsum, eu commodo risus lacinia efficitur. Aliquam accumsan dictum vulputate.
+                    Praesent facilisis dui interdum, volutpat turpis vel, volutpat metus. Donec vel nibh urna.
+                    Fusce eu imperdiet purus. Aliquam eu lacus non lacus blandit consequat a eget eros.
+                    In rutrum dolor vel velit fringilla, sed commodo velit tempor. Ut gravida purus nulla, quis faucibus magna luctus non. 
+                    Pellentesque pellentesque sodales lacus vitae rhoncus. Aliquam at dolor in diam gravida congue.
+                    Maecenas commodo quam et nisl maximus, et sodales velit suscipit. In maximus eu velit eget pretium. 
+                    Etiam efficitur eget tellus sagittis accumsan. Pellentesque eu ipsum sit amet sem consequat aliquet ut et leo.
+                    Phasellus ipsum ante, rutrum sit amet tincidunt non, viverra vitae magna. Nullam rutrum eros sit amet mollis porta.
+                    Vestibulum a leo lacinia, volutpat diam ut, placerat dui.
+                </Description>
+            </VieGroupDesc>
+        </View>
         </SafeAreaView>
     )
 })
@@ -34,71 +72,71 @@ const ViewGroup = styled.View({
   height: 164,
   backgroundColor: '#ffffff',
   borderBottomColor: '#707070',
-  borderBottomWidth: 1
+  borderBottomWidth: 1,
+  flexDirection: 'row',
+  justifyContent:'center',
+  textAlign:'center'
 })
 
-const TouchBox = styled.TouchableOpacity({
-    width: 90,
-    paddingTop: 5,
-    paddingBottom: 5,
-    borderWidth: 1,
-    borderColor: '#707070',
-    borderRadius: 5,
-    backgroundColor: '#FFFFFF',
-    marginRight: 29,
-    marginBottom: 34,
+const ViewSeparator = styled.View({
+    paddingBottom:2,
+    backgroundColor: '#ffffff'
+})
+
+const TextShort = styled.Text({
+    fontSize: 14,
+    fontStyle: 'italic',
+    color: '#4E4F4F'
+})
+
+const ViewTitle = styled.View({
     justifyContent:'center',
-    alignItems:'center',
-    height: 136
+    width:width/2, 
+    bottom: 20
 })
 
-const ViewBorder = styled.View({
-    borderColor: '#707070',
-    borderWidth: 1,
-    borderRadius: 5,
-    width: '90%',
-    height: 127
+const ViewPuzelGroup = styled.View({
+    backgroundColor:"#000000",
+    paddingTop:16,
+    paddingBottom: 9,
+    paddingLeft:16
 })
 
-const PositionTitleTop = styled.View({
-    marginTop: 10,
-    marginLeft: 11
+const VieGroupDesc = styled.View ({
+    backgroundColor:'#3C3D3E',
+    height:height,
+    paddingTop:22,
+    paddingLeft:16,
+    paddingRight:16,
 })
 
-const Title = styled.Text({
-    color:'#000000',
-    fontSize: 21,
-    fontFamily: 'PerryGothic',
-    fontWeight: 400,
-    paddingTop: 10
+const RandomPuzelTitle = styled.Text({
+    color:'#FFFFFF',
+    fontFamily:'PerryGothic',
+    fontSize:16,
+    fontWeight: 300
 })
 
-const PositionSymbol = styled.View({
-    justifyContent: 'center',
-    alignItems: 'center'
+const Description = styled.Text({
+    color:'#ffffff',
+    fontSize:16,
+    textAlign:'left',
+    justifyContent:'center',
+    fontWeight: 400
 })
 
-const IcSymbol = styled.Image({
-    width: 35,
-    height: 32,
-    marginBottom: 8.5,
+const GroupButton = styled.View({
+    position:'absolute',
+    right:0 ,
+    top:8,
+    zIndex:2,
+    height:56
 })
 
-const PositionTitleBottom = styled.View({
-    alignItems: 'flex-end',
-    marginRight: 7,
+const Refresh = styled.Image({
+    aspectRatio:'1',
+    height:'100%'
 })
-
-const TitleBottom = styled.Text({
-    color:'#000000',
-    fontSize: 21,
-    fontFamily: 'PerryGothic',
-    fontWeight: 400,
-    transform: 'rotate(180deg)',
-    paddingTop: (Platform.OS)? 10 : 0,
-    
-})
-
 
 
 export default ScreenOfCardDesc

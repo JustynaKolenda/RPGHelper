@@ -74,9 +74,10 @@ const PositionSymbol = styled.View({
 })
 
 const IcSymbol = styled.Image({
-    width: 35,
-    height: 32,
-    marginBottom: 8.5,
+    width: 37,
+    height: 33,
+    marginBottom: 5,
+    marginTop:5
 })
 
 const PositionTitleBottom = styled.View({
