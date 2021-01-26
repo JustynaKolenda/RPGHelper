@@ -56,7 +56,7 @@ const ViewBorder = styled.View({
 })
 
 const PositionTitleTop = styled.View({
-    marginTop: 10,
+    marginTop: (Platform.OS == 'ios')? 5 : 0,
     marginLeft: 11
 })
 
@@ -76,13 +76,14 @@ const PositionSymbol = styled.View({
 const IcSymbol = styled.Image({
     width: 37,
     height: 33,
-    marginBottom: 5,
-    marginTop:5
+    marginTop: (Platform.OS == 'ios')? 7 : 5
 })
 
 const PositionTitleBottom = styled.View({
     alignItems: 'flex-end',
     marginRight: 7,
+    zIndex:2,
+    bottom: (Platform.OS== 'ios')? -10 : -2
 })
 
 const TitleBottom = styled.Text({
@@ -91,8 +92,7 @@ const TitleBottom = styled.Text({
     fontFamily: 'PerryGothic',
     fontWeight: 400,
     transform: 'rotate(180deg)',
-    paddingTop: (Platform.OS)? 10 : 0,
-    
+    paddingTop: (Platform.OS == 'ios')? 10 : 0
 })
 
 
