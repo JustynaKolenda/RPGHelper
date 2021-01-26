@@ -1,23 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Image, Platform, } from 'react-native';
 import styled from 'styled-components/native';
+import { CounterStoreContext } from '../store/store';
 import { CartsType } from '../variables/type';
-
+import { observer } from 'mobx-react-lite'
  interface ICartP{
-    onPress: (id:string)=>void,
+    onPress: (id:CartsType)=>void,
     item: CartsType
  } 
 
-const CartScreen = ( props: ICartP) => {
+const CartScreen = observer(( props: ICartP) => {
 
+    const CounterStore = useContext(CounterStoreContext)
+    const uriSymbol = CounterStore.active?.uri
+
+    
     return (
-        <TouchBox onPress={()=>props.onPress(props.item.id)}>
+        <TouchBox onPress={()=>props.onPress(props.item)}>
             <ViewBorder>
                 <PositionTitleTop>
                     <Title>{props.item.title}</Title>
                 </PositionTitleTop>
                 <PositionSymbol>
-                    <IcSymbol source={{uri:'ic_trefl' }}/>
+                    <IcSymbol source={{uri: uriSymbol }}/>
                 </PositionSymbol>
                 <PositionTitleBottom>
                     <TitleBottom>{props.item.title}</TitleBottom>
@@ -25,7 +30,7 @@ const CartScreen = ( props: ICartP) => {
             </ViewBorder>
         </TouchBox>
     )
-};
+});
 
 const TouchBox = styled.TouchableOpacity({
     width: 90,
@@ -51,7 +56,7 @@ const ViewBorder = styled.View({
 })
 
 const PositionTitleTop = styled.View({
-    marginTop: 10,
+    marginTop: (Platform.OS == 'ios')? 5 : 0,
     marginLeft: 11
 })
 
@@ -69,14 +74,16 @@ const PositionSymbol = styled.View({
 })
 
 const IcSymbol = styled.Image({
-    width: 35,
-    height: 32,
-    marginBottom: 8.5,
+    width: 37,
+    height: 33,
+    marginTop: (Platform.OS == 'ios')? 7 : 5
 })
 
 const PositionTitleBottom = styled.View({
     alignItems: 'flex-end',
     marginRight: 7,
+    zIndex:2,
+    bottom: (Platform.OS== 'ios')? -10 : -2
 })
 
 const TitleBottom = styled.Text({
@@ -85,8 +92,7 @@ const TitleBottom = styled.Text({
     fontFamily: 'PerryGothic',
     fontWeight: 400,
     transform: 'rotate(180deg)',
-    paddingTop: (Platform.OS)? 10 : 0,
-    
+    paddingTop: (Platform.OS == 'ios')? 10 : 0
 })
 
 

@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
-import { Dimensions, FlatList, SafeAreaView,} from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { observer } from 'mobx-react-lite'
+import React, {  } from 'react'
+import { Dimensions, FlatList, SafeAreaView, Text,} from 'react-native'
 import styled from 'styled-components/native'
+import { CounterStoreContext } from '../store/store'
 import { CartsDATA } from '../variables/CartsData'
+import { NavigationName } from '../variables/NavigationName'
+import { CartsType } from '../variables/type'
 import CartScreen from './CartScreen'
 
-const CartsScreen = ()=> {
-    const onPress = (id:string)=> {
-        return console.log(id)
+const CartsScreen =  observer(()=> {
+
+    const navigation = useNavigation()
+    const navToCartDesc = (item:CartsType) => {
+        navigation.navigate(NavigationName.CARTDESCRIPTION,
+        {itemId: item})
     }
 
     return(
@@ -18,12 +26,12 @@ const CartsScreen = ()=> {
                 data={CartsDATA}
                 keyExtractor={(item)=>item.id}
                 numColumns={3}
-                renderItem={({item})=><CartScreen item={item} onPress={onPress}/>}
+                renderItem={({item})=><CartScreen onPress={navToCartDesc} item={item} />}
             />
         </ViewGroup>
         </SafeAreaView>
     )
-}
+})
 
 const {width, height} = Dimensions.get('window')
 const ViewGroup = styled.View({

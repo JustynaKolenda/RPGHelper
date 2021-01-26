@@ -8,20 +8,25 @@
  * @format
  */
 
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import {
-  StatusBar,
-} from 'react-native';
+import { } from 'react-native';
+import StackNavigation from './src/navigations/StackNavigation';
+import ScreenOfCardDesc from './src/screeens/Description/ScreenOfCardDesc';
 import ListScreen from './src/screeens/ListScreen';
+import { CounterStore, CounterStoreContext } from './src/store/store';
 
 
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
+  const store = new CounterStore()
   return (
-    <>
-      <ListScreen/>
-    </>
+    <CounterStoreContext.Provider value={store}>
+      <NavigationContainer>
+        <StackNavigation />
+      </NavigationContainer>
+    </CounterStoreContext.Provider>
   );
 };
 

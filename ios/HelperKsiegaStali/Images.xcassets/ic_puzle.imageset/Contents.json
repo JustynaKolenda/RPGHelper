@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "iconmonstr-puzzle-1-64.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +11,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "iconmonstr-puzzle-1-64@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
