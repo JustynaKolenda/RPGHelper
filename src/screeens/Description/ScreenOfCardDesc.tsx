@@ -122,7 +122,7 @@ const RandomPuzelTitle = styled.Text({
 
 const Description = styled.Text({
     color:'#ffffff',
-    fontSize:16,
+    fontSize:18,
     textAlign:'left',
     justifyContent:'center',
     fontFamily: 'Raleway',
