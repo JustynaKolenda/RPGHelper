@@ -16,7 +16,7 @@ const ListScreen = ()=> {
 
 const {width, height} = Dimensions.get('window')
 const GroupView = styled.View({
-    backgroundColor:'#000000',
+    backgroundColor:'#3C3D3E',
     height: height
 })
 const ViewSeparator = styled.View({

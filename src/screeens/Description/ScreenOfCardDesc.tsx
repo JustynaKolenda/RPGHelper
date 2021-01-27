@@ -30,7 +30,7 @@ const ScreenOfCardDesc =  observer((props: IScreenOfCardDescP)=> {
   
     return(
         <ScrollView>
-            <SafeAreaView style={{backgroundColor:'#ffffff'}}>
+            <SafeAreaView style={{backgroundColor:'#3C3D3E'}}>
                 <ViewGroup>
                     <CartScreen onPress={onPress} item={item} />
                     <ViewTitle> 
@@ -107,10 +107,10 @@ const ViewPuzelGroup = styled.View({
 
 const VieGroupDesc = styled.View ({
     backgroundColor:'#3C3D3E',
-    height:height,
     paddingTop:22,
     paddingLeft:16,
     paddingRight:16,
+    paddingBottom:30
 })
 
 const RandomPuzelTitle = styled.Text({

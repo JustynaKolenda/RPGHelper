@@ -38,7 +38,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -55,10 +55,9 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>perrygot.ttf</string>
 		<string>PerryGothic.ttf</string>
-		<string>Raleway_Italic_VariableFont_wght.ttf</string>
-		<string>Raleway_VariableFont_wght.ttf</string>
+		<string>Raleway.ttf</string>
+		<string>Raleway-Italic.ttf</string>
 	</array>
 </dict>
 </plist>

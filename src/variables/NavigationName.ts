@@ -1,8 +1,10 @@
   
 export enum NavigationName {
-    LIST = 'List Screen',
+    LIST = 'Loch',
     CARTDESCRIPTION = 'CartDescription',
     CARTS = 'Carts',
     SYMBOLS = 'Symbols',
-    SYMBOL = 'Symbol Screen'
+    SYMBOL = 'Symbol Screen',
+    MONSTER = 'Potwory',
+    PUZLE = 'Karty'
 }
